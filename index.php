@@ -1,3 +1,14 @@
+<?php
+    require_once "config/conexion.php";
+    $sql = "SELECT * FROM pedidos WHERE estado=1";
+    $resultado_pedidos=$conn->query($sql);
+    $lista_pedidos=array();
+    if ($resultado_pedidos->num_rows > 0) { 
+            while ($fila = $resultado_pedidos->fetch_assoc()) {
+                array_push($lista_pedidos, $fila["id_pedido"]);
+            }
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +39,7 @@
     <div class="container-sm">
         <div class="row">
             <?php 
-                for ($i=0; $i <15; $i++) {
+                for ($i=0; $i <count($lista_pedidos); $i++) {
             ?>
             <div class="card" style="width: 18rem;">
                 <div class="circulo"><?php echo $i+1 ?></div>
@@ -48,7 +59,7 @@
                 }
             ?>
             <div class="card" style="width: 18rem;">
-            <a href="#">
+            <a href="agregarPedido.php">
                 <img src="images/mas.png" class="agregar card-img-top" style="width: 16rem; position: relative; top: 100%; transform: translateY(-50%);">
             </a>
                 
