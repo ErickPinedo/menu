@@ -88,20 +88,22 @@
                 <div class="accordion-body row">
                     <div class="col">
                         <h2>Formulario de Productos</h2>
-                            <form method="post" action="registarCategorias.php">
-                                <label for="categorias">Nombre de la Producto:</label> 
+                            <form method="post" action="registros/registarCategorias.php">
+                                <label for="categorias">Nombre del Producto:</label> 
                                 <input class="form-control btn btn-outline-secondary" name="nombreCategoria" type="text" placeholder="Nombre del Producto" aria-label="default input example"  required>
                                 
-                                    <label for="categorias">Selecciona la categoria a la que pertenece:</label>    
-                                    <select name="select" class="btn btn-outline-secondary">
-                                        <?php
-                                            for ($i=0; $i < count($lista_nombre_categorias); $i++) { 
-                                                ?>
-                                                    <option value=<?php echo $lista_id_categorias[$i]?>><?php echo $lista_nombre_categorias[$i]?></option>
-                                                <?php
-                                            }
-                                        ?>
-                                    </select>
+                                <label for="categorias">Selecciona la categoria a la que pertenece:</label>    
+                                <select name="select" class="btn btn-outline-secondary">
+                                    <?php
+                                        for ($i=0; $i < count($lista_nombre_categorias); $i++) { 
+                                            ?>
+                                                <option value=<?php echo $lista_id_categorias[$i]?>><?php echo $lista_nombre_categorias[$i]?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                                <label for="categorias">Precio del Producto:</label> 
+                                <input class="form-control btn btn-outline-secondary" name="nombreCategoria" type="text" placeholder="Precio del Producto" aria-label="default input example"  required>
                                 
                                 <button type="submit" class="btn btn-outline-primary boton_guardar" style="width:99%;">Guardar</button>
                             </form>

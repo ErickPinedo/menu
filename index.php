@@ -59,7 +59,7 @@
                 }
             ?>
             <div class="card" style="width: 18rem;">
-            <a href="agregarPedido.php">
+            <a href="registros/agregarPedido.php">
                 <img src="images/mas.png" class="agregar card-img-top" style="width: 16rem; position: relative; top: 100%; transform: translateY(-50%);">
             </a>
                 

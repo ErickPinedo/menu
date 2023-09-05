@@ -3,7 +3,7 @@
         $nombre=$_POST["nombreCategoria"];
     }
 
-    require_once "config/conexion.php";
+    require_once "../config/conexion.php";
 
     $sql = "INSERT INTO categoria(nombre_categoria) VALUES ('$nombre')";
     if ($conn->query($sql) === TRUE) {
