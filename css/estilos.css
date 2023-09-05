@@ -1,0 +1,48 @@
+.circulo{
+  font-weight: bold;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  top: 0;
+  right: 0;
+  background-color: rgb(68, 159, 233); /* Cambia el color de fondo según tus preferencias */
+  color: white; /* Cambia el color del texto según tus preferencias */
+  padding: 5px 10px; /* Ajusta el relleno para que se adapte al número */
+  border-radius: 50%;
+}
+.card{
+  margin: 15px;
+}
+.agregar{
+  width: 16rem;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+.btn{
+  margin: 5px;
+}
+.container{
+  h1{
+    text-align: center;
+  }
+}
+.categorias_form{
+  h2{
+    text-align: center;
+  }
+}
+.separador {
+  width: 1px; /* Ancho de la línea divisoria */
+  background-color: #ccc; /* Color de la línea divisoria */
+}
+
+
+.categoriasproductos{
+  label{
+    text-align: center;
+  }
+  
+}
