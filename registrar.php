@@ -10,6 +10,22 @@
                 array_push($lista_nombre_categorias, $fila["nombre_categoria"]);
             }
         }
+    $sql = "SELECT * FROM productos ";
+    $resultado_productos=$conn->query($sql);
+    $lista_id_producto=array();
+    $lista_id_idCategorias=array();
+    $lista_nombre_productos=array();
+    $lista_precio_productos=array();
+    if ($resultado_productos->num_rows > 0) { 
+            while ($fila = $resultado_productos->fetch_assoc()) {
+                array_push($lista_id_producto, $fila["id_producto"]);
+                array_push($lista_id_idCategorias, $fila["id_categoria"]);
+                array_push($lista_nombre_productos, $fila["nombre_producto"]);
+                array_push($lista_precio_productos, $fila["precio"]);
+            }
+        }
+    
+    $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,12 +104,12 @@
                 <div class="accordion-body row">
                     <div class="col">
                         <h2>Formulario de Productos</h2>
-                            <form method="post" action="registros/registarCategorias.php">
+                            <form method="post" action="registros/registarProductos.php">
                                 <label for="categorias">Nombre del Producto:</label> 
-                                <input class="form-control btn btn-outline-secondary" name="nombreCategoria" type="text" placeholder="Nombre del Producto" aria-label="default input example"  required>
+                                <input class="form-control btn btn-outline-secondary" name="nombreProducto" type="text" placeholder="Nombre del Producto" aria-label="default input example"  required>
                                 
                                 <label for="categorias">Selecciona la categoria a la que pertenece:</label>    
-                                <select name="select" class="btn btn-outline-secondary">
+                                <select name="selectCategoria" class="btn btn-outline-secondary">
                                     <?php
                                         for ($i=0; $i < count($lista_nombre_categorias); $i++) { 
                                             ?>
@@ -103,7 +119,7 @@
                                     ?>
                                 </select>
                                 <label for="categorias">Precio del Producto:</label> 
-                                <input class="form-control btn btn-outline-secondary" name="nombreCategoria" type="text" placeholder="Precio del Producto" aria-label="default input example"  required>
+                                <input class="form-control btn btn-outline-secondary" name="precioProducto" type="text" placeholder="Precio del Producto" aria-label="default input example"  required>
                                 
                                 <button type="submit" class="btn btn-outline-primary boton_guardar" style="width:99%;">Guardar</button>
                             </form>
@@ -115,21 +131,15 @@
 
                     <div class="col ">
                         <h2>Productos Registrados</h2>
-                        <?php
-                            if ($resultado_categorias->num_rows > 0) {
-                        ?>
                         <ul class="list-group">
                             <?php
-                            while ($fila = $resultado_categorias->fetch_assoc()) {
-                            ?>
-                                <li class="list-group-item"><?php echo $fila["nombre_categoria"]?></li>
-                            <?php
-                            }
-                            ?>
+                                    for ($i=0; $i < count($lista_id_producto); $i++) { 
+                                        ?>
+                                            <li class="list-group-item"><?php echo $lista_nombre_productos[$i]." $". $lista_precio_productos[$i]?></li>
+                                        <?php
+                                    }
+                                ?>
                         </ul>
-                        <?php
-                            }
-                        ?>
                     </div>
                 </div>
                 </div>
